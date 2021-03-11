@@ -29,7 +29,7 @@
                     //コントローラのレイキャスターの向きを取得
                     var dir = this.getAttribute("raycaster").direction;
                     //球を発射するときの向きと大きさを設定(好みに応じて変更) 
-                    var force = new THREE.Vector3(dir.x, dir.y, dir.z/2.25);
+                    var force = new THREE.Vector3(dir.x, dir.y, dir.z/10);
                     force.multiplyScalar(2000);
                     //レイキャスターの向きはコントローラを原点としたローカル座標系なのでワールド座標に変換                   
                     ball.force = this.object3D.localToWorld(force);

@@ -119,20 +119,6 @@
 
 <body>
     <a-scene physics="debug: false; gravity: 0; restitution: 0.9; " background="color: #AAAAAA">
-        <!--collidable:レイキャスターとの交差判定の対象とするクラス-->
-        <!--static-body:ボールとの衝突判定はする。ただし重力の影響や衝突の影響は受けない-->
-        <a-sphere class="collidable" static-body position="0 1.25 -4" radius="0.7" color="#EF2D5E" shadow></a-sphere>
-        <a-cylinder class="collidable" static-body position="1 0.75 -2" radius="0.5" height="1.5" color="#FFC65D" shadow></a-cylinder>
-        <a-box class="collidable" static-body position="-1 0.5 -2" rotation="0 0 0" color="#4CC3D9" shadow> </a-box>
-
-        <!--a-plane:部屋の壁や床・天井-->
-        <!--src="./back.png"の部分は適宜書き換えてください。-->
-        <a-plane static-body position="0 0 0" rotation="-90 0 0" width="10" height="10" color="#7BC8A4" src="./back.png" shadow> </a-plane>
-        <a-plane static-body position="0 5 0" rotation="90 0 0" width="10" height="10" color="#7BC8A4" src="./back.png" shadow> </a-plane>
-        <a-plane static-body position="0 2.5 -5" rotation="0 0 0" width="10" height="5" color="#7BC8FF" src="./back.png" shadow> </a-plane>
-        <a-plane static-body position="0 2.5 5" rotation="0 180 0" width="10" height="5" color="#7BC8FF" src="./back.png" shadow> </a-plane>
-        <a-plane static-body position="5 2.5 0" rotation="0 -90 0" width="10" height="5" color="#7BC8FF" src="./back.png" shadow> </a-plane>
-        <a-plane static-body position="-5 2.5 0" rotation="0 90 0" width="10" height="5" color="#7BC8FF" src="./back.png" shadow> </a-plane>
         <a-entity id="cameraRig">
             <a-entity id="head" camera wasd-controls look-controls position="0 1.6 0">
             </a-entity>
@@ -144,18 +130,17 @@
             </a-entity>
         </a-entity>
         
-    <a-entity light="type: point; intensity:1; distance: 50; decay: 7" position="-100 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:1; distance: 50; decay: 7" position="-80 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:1; distance: 50; decay: 7" position="-60 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:1; distance: 50; decay: 7" position="-40 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:1; distance: 50; decay: 7" position="-20 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:1; distance: 50; decay: 7" position="0 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:1; distance: 50; decay: 7" position="20 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:1; distance: 50; decay: 7" position="40 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:1; distance: 50; decay: 7" position="60 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:1; distance: 50; decay: 7" position="80 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:1; distance: 50; decay: 7" position="100 11 -4"></a-entity>
-    <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="-100 11 -4"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="-80 11 -4"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="-60 11 -4"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="-40 11 -4"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="-20 11 -4"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="0 11 -4"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="20 11 -4"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="40 11 -4"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="60 11 -4"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="80 11 -4"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="100 11 -4"></a-entity>
     <a-plane position="0 4 10" rotation="0 180 0" width="200" height="16" color="#e0e0e0"></a-plane> // back
     <a-plane position="0 4 -16" rotation="0 0 0" width="200" height="16" color="#e0e0e0"></a-plane> // front
     <a-plane position="0 12s -8" rotation="90 0 0" width="200" height="36" color="#e0e0e0"></a-plane> // top

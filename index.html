@@ -58,17 +58,17 @@
           event-set__mouseleave="_event: mouseleave; color: black"
           raycaster="objects: .link"></a-cursor>
       </a-entity> -->
-    <a-entity light="type: point; intensity:0.3; distance: 50; decay: 7" position="-100 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:0.3; distance: 50; decay: 7" position="-80 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:0.3; distance: 50; decay: 7" position="-60 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:0.3; distance: 50; decay: 7" position="-40 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:0.3; distance: 50; decay: 7" position="-20 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:0.3; distance: 50; decay: 7" position="0 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:0.3; distance: 50; decay: 7" position="20 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:0.3; distance: 50; decay: 7" position="40 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:0.3; distance: 50; decay: 7" position="60 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:0.3; distance: 50; decay: 7" position="80 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:0.3; distance: 50; decay: 7" position="100 11 -4"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 7" position="-100 11 -4"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 7" position="-80 11 -4"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 7" position="-60 11 -4"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 7" position="-40 11 -4"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 7" position="-20 11 -4"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 7" position="0 11 -4"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 7" position="20 11 -4"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 7" position="40 11 -4"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 7" position="60 11 -4"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 7" position="80 11 -4"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 7" position="100 11 -4"></a-entity>
 <!-- 
 
     <a-entity light="type: spot; intensity:0.5; distance: 50; decay: 8; angle:-180;" position="-100 11 -4"></a-entity>
@@ -81,9 +81,8 @@
     <a-entity light="type: spot; intensity:0.5; distance: 50; decay: 8; angle:-180;" position="40 11 -4"></a-entity>
     <a-entity light="type: spot; intensity:0.5; distance: 50; decay: 8; angle:-180;" position="60 11 -4"></a-entity>
     <a-entity light="type: spot; intensity:0.5; distance: 50; decay: 8; angle:-180;" position="80 11 -4"></a-entity> -->
-    <a-entity id="teleHand" hand-controls="hand: left"></a-entity>
-    <a-entity id="blockHand" hand-controls="hand: right"></a-entity>
-    <a-entity id="teleHand" hand-controls="hand: left" teleport-controls="type: parabolic; collisionEntities: [mixin='voxel'], #ground"></a-entity>
+    <a-entity id="blockHand" oculus-touch-controls hand-controls="hand: right"></a-entity>
+    <a-entity id="teleHand" oculus-touch-controls hand-controls="hand: left" teleport-controls="type: parabolic; collisionEntities: [mixin='voxel'], #ground"></a-entity>
 
     <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
     <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>

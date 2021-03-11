@@ -22,10 +22,10 @@
                     //ボールを生成
                     var ball = document.createElement('a-sphere');
                     ball.setAttribute('class', 'ball');
-                    ball.setAttribute('scale', '0.2 0.2 0.2');
+                    ball.setAttribute('scale', '0.1 0.1 0.1');
                     ball.setAttribute('position', point);
                     //dynamic-bodyを設定することで物理演算をさせる
-                    ball.setAttribute('dynamic-body', 'shape: sphere; sphereRadius:0.2; ');
+                    ball.setAttribute('dynamic-body', 'shape: sphere; sphereRadius:0.1; ');
                     //コントローラのレイキャスターの向きを取得
                     var dir = this.getAttribute("raycaster").direction;
                     //球を発射するときの向きと大きさを設定(好みに応じて変更) 
@@ -122,31 +122,34 @@
         <a-entity id="cameraRig">
             <a-entity id="head" camera wasd-controls look-controls position="0 1.6 0">
             </a-entity>
-            <a-entity id="ctlL" teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head; startEvents: teleportstart; endEvents: teleportend" raycaster="objects: .collidable; far:1.2;" laser-controls="hand: left" input-listener>
+            <a-entity id="ctlL" teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head; startEvents: teleportstart; endEvents: teleportend" raycaster="objects: .collidable; far:2;" laser-controls="hand: left" input-listener>
                 <a-text value="Trigger: shoot a ball\nGrip: Grab large object\nX: Teleport" position="0 0.05 0" rotation="-90 0 0" scale="0.1 0.1 0.1" align="center" color="#FFFFFF"></a-text>
             </a-entity>
-            <a-entity id="ctlR" raycaster="objects: .collidable; far:1.2;" laser-controls="hand: right" input-listener>
+            <a-entity id="ctlR" raycaster="objects: .collidable; far:2;" laser-controls="hand: right" input-listener>
                 <a-text value="Trigger: shoot a ball\nGrip: Grab large object\nA: Remove small balls" position="0 0.05 0" rotation="-90 0 0" scale="0.1 0.1 0.1" align="center" color="#FFFFFF"></a-text>
             </a-entity>
         </a-entity>
         
-    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="-100 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="-80 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="-60 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="-40 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="-20 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="0 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="20 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="40 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="60 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="80 11 -4"></a-entity>
-    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="100 11 -4"></a-entity>
-    <a-plane position="0 4 10" rotation="0 180 0" width="200" height="16" color="#e0e0e0"></a-plane> // back
-    <a-plane position="0 4 -16" rotation="0 0 0" width="200" height="16" color="#e0e0e0"></a-plane> // front
-    <a-plane position="0 12s -8" rotation="90 0 0" width="200" height="36" color="#e0e0e0"></a-plane> // top
-    <a-plane position="100 4 -8" rotation="0 -90 0" width="36" height="16" color="#e0e0e0"></a-plane> // right
-    <a-plane position="-100 4 -8" rotation="0 90 0" width="36" height="16" color="#e0e0e0"></a-plane> // left
-    <a-plane position="0 -4 -8" rotation="-90 0 0" width="200" height="36" color="#e0e0e0"></a-plane> // bottom
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="-100 11 0"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="-80 11 0"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="-60 11 0"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="-40 11 0"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="-20 11 0"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="0 11 0"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="20 11 0"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="40 11 0"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="60 11 0"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="80 11 0"></a-entity>
+    <a-entity light="type: point; intensity:1; distance: 50; decay: 5" position="100 11 0"></a-entity>
+    <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+    <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+    <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+    <a-plane position="0 4 18" rotation="0 180 0" width="200" height="16" color="#e0e0e0"></a-plane> // back
+    <a-plane position="0 4 -18" rotation="0 0 0" width="200" height="16" color="#e0e0e0"></a-plane> // front
+    <a-plane position="0 12 0" rotation="90 0 0" width="200" height="36" color="#e0e0e0"></a-plane> // top
+    <a-plane position="100 4 0" rotation="0 -90 0" width="36" height="16" color="#e0e0e0"></a-plane> // right
+    <a-plane position="-100 4 0" rotation="0 90 0" width="36" height="16" color="#e0e0e0"></a-plane> // left
+    <a-plane position="0 -4 0" rotation="-90 0 0" width="200" height="36" color="#e0e0e0"></a-plane> // bottom
     </a-scene>
 </body>
 </html>

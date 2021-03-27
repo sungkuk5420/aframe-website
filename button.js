@@ -10,7 +10,7 @@ AFRAME.registerComponent('button', {
     console.log(el)
     var labelEl = this.labelEl = document.createElement('a-entity');
 
-    this.hoverColor = '#0cc6b8';
+    this.hoverColor = '#00796B';
     
     el.setAttribute('geometry', {
       primitive: 'box',
@@ -22,29 +22,26 @@ AFRAME.registerComponent('button', {
     
     if(el.id == "menu-1"){
       this.color = '#F16745';
-      el.setAttribute('position', '-2 5 -7');
+      el.setAttribute('position', '-4 5 -7');
     }
     if(el.id == "menu-2"){
-      this.color = '#7BC8A4';
-      el.setAttribute('position', '-2 3 -7');
+      this.color = '#FF5252';
+      el.setAttribute('position', '-4 3 -7');
     }
     if(el.id == "menu-3"){
-      this.color = '#4CC3D9';
-      el.setAttribute('position', '-2 1 -7');
+      this.color = '#303F9F';
+      el.setAttribute('position', '-4 1 -7');
     }
-    if(el.id == "menu-4"){
-      this.color = '#EF2D5E';
-      el.setAttribute('position', '-2 -1 -7');
+    if(el.id == "portfolioClose"){
+      this.color = '#5D4037';
     }
     
     el.setAttribute('material', {color: this.color});
     el.setAttribute('pressable', '');
     labelEl.setAttribute('position', '0 0 0.01');
-    console.log(this.data.label)
     labelEl.setAttribute('text', {
-      value: this.data.label,
       color: 'white',
-      align: 'center'
+      align: 'center',
     });
 
     labelEl.setAttribute('scale', '15 15 15');

@@ -6,7 +6,7 @@ AFRAME.registerComponent('menu-click', {
       this.el.addEventListener('click', this.menu1Click);
     }
     if(this.el.id == "menu-2"){
-      this.el.addEventListener('click', this.menu2Click);
+      this.el.addEventListener('click', this.menu1Click);
     }
     if(this.el.id == "menu-3"){
       this.el.addEventListener('click', this.menu3Click);
@@ -21,6 +21,7 @@ AFRAME.registerComponent('menu-click', {
 
   menu1Click: function () {
     console.log("menu1Click")
+    showMaze();
     hideMenu();
     setTimeout(() => {
       startTurnOnLights();

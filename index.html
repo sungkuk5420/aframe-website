@@ -73,12 +73,12 @@
         <!-- <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
         <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
         <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder> -->
-        <a-plane position="-18 4 -80" rotation="0 90 0" width="200" height="16" color="#e0e0e0"></a-plane> <!--left-->
-        <a-plane position="0 12 -80" rotation="90 -90 0" width="200" height="36" color="#e0e0e0"></a-plane> <!--top-->
-        <a-plane position="18 4 -80" rotation="0 -90 0" width="200" height="16" color="#e0e0e0"></a-plane> <!--right-->
-        <a-plane position="0 4 -180" rotation="0 0 0" width="36" height="16" color="#e0e0e0"></a-plane> <!--front-->
-        <a-plane position="0 4 20" rotation="0 180 0" width="36" height="16" color="#e0e0e0"></a-plane> <!--back-->
-        <a-plane position="0 -4 -80" rotation="-90 -90 0" width="200" height="36" color="#e0e0e0"></a-plane> <!--bottom-->
+        <a-plane id="wall-1" position="-18 4 -80" rotation="0 90 0" width="200" height="16" color="#e0e0e0"></a-plane> <!--left-->
+        <a-plane id="wall-2" position="0 12 -80" rotation="90 -90 0" width="200" height="36" color="#e0e0e0"></a-plane> <!--top-->
+        <a-plane id="wall-3" position="18 4 -80" rotation="0 -90 0" width="200" height="16" color="#e0e0e0"></a-plane> <!--right-->
+        <a-plane id="wall-4" position="0 4 -180" rotation="0 0 0" width="36" height="16" color="#e0e0e0"></a-plane> <!--front-->
+        <a-plane id="wall-5" position="0 4 20" rotation="0 180 0" width="36" height="16" color="#e0e0e0"></a-plane> <!--back-->
+        <a-plane id="wall-6" position="0 -4 -80" rotation="-90 -90 0" width="200" height="36" color="#e0e0e0"></a-plane> <!--bottom-->
 
         <a-assets>
             <a-mixin id="plane" geometry="height: 1; width: 4"></a-mixin>
@@ -124,6 +124,13 @@
               material="src: #ponyo; shader: flat; transparent: true"
               position="0 0.495 0.002"
              ></a-mixin>
+
+             <a-asset-item id="why-male-models" src="man.glb"></a-asset-item>
+             <img id="fall" src="fall.png">
+             <img id="goggles" src="goggles.png">
+             <img id="price" src="price.png">
+             <img id="shadow2" src="../../assets/img/radial-shadow-2.png">
+             <img id="shoes" src="shoes.png">
         </a-assets>
         <a-entity position="-2 -1 -7" rotation="0 0 0">
             <!-- <a-entity
@@ -143,7 +150,7 @@
         <a-entity menu-click="id: menu-1" id="menu-1" button="label: Don't Click"   scale=" 0 0 0" animation="dur:1; property:scale; to:1 1 1; delay: 1250" position="0 6 0.001"></a-entity>
         <a-entity menu-click="id: menu-2" id="menu-2" button="label: Profile"   scale=" 0 0 0" animation="dur:1; property:scale; to:1 1 1; delay: 1250" position="0 4 0.001"></a-entity>
         <a-entity menu-click="id: menu-3" id="menu-3" button="label: Projects"   scale=" 0 0 0" animation="dur:1; property:scale; to:1 1 1; delay: 1250" position="0 2 0.001"></a-entity>
-        <a-entity menu-click="id: portfolioClose" id="portfolioClose" button="label: Menu"   scale=" 0 0 0" animation="dur:1; property:scale; to:1 1 1; delay: 1250" position="0 7 -7"></a-entity>
+        <a-entity menu-click="id: portfolioClose" id="portfolioClose" button="label: Menu"   scale=" 0 0 0" animation="dur:1; property:scale; to:1 1 1; delay: 1250; " position="0 7 -7"></a-entity>
         
         <a-entity
         id="background"
@@ -192,6 +199,7 @@
       <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E"></a-entity>
 
       <!-- 여기서부터 포트폴리오 -->
+      <a-sky src="360-image.jpg" rotation="0 270 0"></a-sky>
       <a-entity id="ui" position="0 1.6 -2.5">
         <!-- Poster menu -->
         <a-entity id="menu" highlight>
@@ -350,6 +358,12 @@
         }
 
         function hidePortfolio(){
+            document.getElementById("wall-1").setAttribute("visible",true);
+            document.getElementById("wall-2").setAttribute("visible",true);
+            document.getElementById("wall-3").setAttribute("visible",true);
+            document.getElementById("wall-4").setAttribute("visible",true);
+            document.getElementById("wall-5").setAttribute("visible",true);
+            document.getElementById("wall-6").setAttribute("visible",true);
             document.getElementById("menu").setAttribute("visible",false);
             document.getElementById("infoPanel").setAttribute("visible",false);
             document.getElementById("portfolioClose").setAttribute("visible",false);
@@ -370,7 +384,13 @@
             document.getElementById("project15").setAttribute("scale","0");
         }
         function showPortfolio(){
-            document.getElementById("sense").setAttribute("environment",true);
+            document.getElementById("wall-1").setAttribute("visible",false);
+            document.getElementById("wall-2").setAttribute("visible",false);
+            document.getElementById("wall-3").setAttribute("visible",false);
+            document.getElementById("wall-4").setAttribute("visible",false);
+            document.getElementById("wall-5").setAttribute("visible",false);
+            document.getElementById("wall-6").setAttribute("visible",false);
+
             document.getElementById("menu").setAttribute("visible",true);
             document.getElementById("infoPanel").setAttribute("visible",true);
             document.getElementById("portfolioClose").setAttribute("visible",true);

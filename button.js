@@ -62,9 +62,7 @@ AFRAME.registerComponent('button', {
   },
 
   update: function (oldData) {
-    if (oldData.label !== this.data.label) {
       this.labelEl.setAttribute('text', 'value', this.data.label);
-    }
   },
 
   onPressedStarted: function () {

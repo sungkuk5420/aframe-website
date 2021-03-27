@@ -19,10 +19,21 @@
     <script src="toggle-layer.js"></script>
     <script src="button.js"></script>
     <script src="input-listener.js"></script>
+    <script src="highlight.js"></script>
+    <script src="info-panel.js"></script>
 </head>
 
 <body>
-    <a-scene physics="debug: false; gravity: 0; restitution: 0.9; " background="color: #AAAAAA"  raycaster="objects: [button];" cursor="rayOrigin: mouse">
+    <a-scene 
+    background="color: #212"
+      webxr="referenceSpaceType: local"
+      environment
+      cursor="rayOrigin: mouse; fuse: false" 
+    physics="debug: false; gravity: 0; restitution: 0.9; " 
+    background="color: #AAAAAA"  
+    raycaster="objects: [button], .raycastable; " 
+    cursor="rayOrigin: mouse"
+    >
         <a-entity id="cameraRig">
             <a-entity id="head" camera wasd-controls look-controls position="0 1.6 0">
             </a-entity>
@@ -71,6 +82,48 @@
 
         <a-assets>
             <a-mixin id="plane" geometry="height: 1; width: 4"></a-mixin>
+            <img id="project1Img" src="1.png" crossorigin="anonymous"/>
+            <img id="project2Img" src="2.jpg" crossorigin="anonymous"/>
+            <img id="project3Img" src="3.png" crossorigin="anonymous"/>
+            <img id="project4Img" src="4.png" crossorigin="anonymous"/>
+            <img id="project5Img" src="5.png" crossorigin="anonymous"/>
+            <img id="project6Img" src="6.png" crossorigin="anonymous"/>
+            <img id="project7Img" src="7.png" crossorigin="anonymous"/>
+            <img id="project8Img" src="8.png" crossorigin="anonymous"/>
+            <img id="project9Img" src="9.png" crossorigin="anonymous"/>
+            <img id="project10Img" src="10.png" crossorigin="anonymous"/>
+            <img id="project11Img" src="11.png" crossorigin="anonymous"/>
+            <img id="project12Img" src="12.png" crossorigin="anonymous"/>
+            <img id="project13Img" src="13.png" crossorigin="anonymous"/>
+            <img id="project14Img" src="14.png" crossorigin="anonymous"/>
+            <img id="project15Img" src="15.png" crossorigin="anonymous"/>
+            <a-mixin
+              id="frame"
+              geometry="primitive: plane; width: 0.5783552; height: 0.8192"
+              material="color: white; shader: flat"
+              animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
+              animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
+             ></a-mixin>
+            <a-mixin
+              id="frameDeskTop"
+              geometry="primitive: plane; width: 0.5783552; height: 0.8192"
+              material="color: white; shader: flat"
+              animation__scale="property: scale; to: 2.4 1.2  1.2; dur: 200; startEvents: mouseenter"
+              animation__scale_reverse="property: scale; to: 2 1 1; dur: 200; startEvents: mouseleave"
+             ></a-mixin>
+             <a-mixin
+              id="poster"
+              geometry="primitive: plane; width: 0.544768; height: 0.786432"
+              material="color: white; shader: flat"
+              material="shader: flat"
+              position="0 0 0.005"
+             ></a-mixin>
+             <a-mixin
+              id="movieImage"
+              geometry="primitive: plane; width: 1.5; height: 0.81"
+              material="src: #ponyo; shader: flat; transparent: true"
+              position="0 0.495 0.002"
+             ></a-mixin>
         </a-assets>
         <a-entity position="-2 -1 -7" rotation="0 0 0">
             <!-- <a-entity
@@ -83,8 +136,8 @@
             </a-plane>
             <a-plane id="menu-3-animation" mixin="plane" position="0 2 0" color="#4CC3D9" scale="0 0 0" animation__1="property: scale; to: 1 0.05 1; dur: 500; delay: 500" animation__2="property: scale; from: 1 0.05 1; to: 1 1 1; dur: 250; delay: 1000" geometry="" material="">
             </a-plane>
-            <a-plane id="menu-4-animation" mixin="plane" color="#EF2D5E" rotation="90 0 0" animation="property: rotation; from: 90 0 0; to: 0 0 0; dur: 750; delay: 500" geometry="" material="">
-            </a-plane>
+            <!-- <a-plane id="menu-4-animation" mixin="plane" color="#EF2D5E" rotation="90 0 0" animation="property: rotation; from: 90 0 0; to: 0 0 0; dur: 750; delay: 500" geometry="" material="">
+            </a-plane> -->
         </a-entity>
         <a-entity id="leftHand" toggle-layer laser-controls="hand: left" raycaster="objects: [button]"></a-entity>
         <a-entity id="rightHand" toggle-layer laser-controls="hand: right" raycaster="objects: [button]"></a-entity>
@@ -92,9 +145,148 @@
         <a-entity menu-click="id: menu-1" id="menu-1" button="label: Don't Click"   scale=" 0 0 0" animation="dur:1; property:scale; to:1 1 1; delay: 1250" position="0 6 0.001"></a-entity>
         <a-entity menu-click="id: menu-2" id="menu-2" button="label: Profile"   scale=" 0 0 0" animation="dur:1; property:scale; to:1 1 1; delay: 1250" position="0 4 0.001"></a-entity>
         <a-entity menu-click="id: menu-3" id="menu-3" button="label: Projects"   scale=" 0 0 0" animation="dur:1; property:scale; to:1 1 1; delay: 1250" position="0 2 0.001"></a-entity>
-        <a-entity menu-click="id: menu-4" id="menu-4" button="label: Contect"   scale=" 0 0 0" animation="dur:1; property:scale; to:1 1 1; delay: 1250" position="0 0 0.001"></a-entity>
+        <!-- <a-entity menu-click="id: menu-4" id="menu-4" button="label: Contect"   scale=" 0 0 0" animation="dur:1; property:scale; to:1 1 1; delay: 1250" position="0 0 0.001"></a-entity> -->
         
-        <a-text value="Hello, World!"></a-text>
+        <a-entity
+        id="background"
+        position="0 0 0"
+        geometry="primitive: sphere; radius: 2.0"
+        material="color: red; side: back; shader: flat"
+        scale="0.001 0.001 0.001"
+        visible="false" class="raycastable">
+      </a-entity>
+
+      <a-entity
+        position="0 1.6 0"
+        camera look-controls="magicWindowTrackingEnabled: false; touchEnabled: false; mouseEnabled: false">
+        <a-entity
+          id="fadeBackground"
+          geometry="primitive: sphere; radius: 2.5"
+          material="color: black; side: back; shader: flat; transparent: true; opacity: 0.6" visible="false">
+        </a-entity>
+      </a-entity>
+
+      <!-- Hand controls -->
+      <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
+      <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E"></a-entity>
+
+      <a-entity
+        id="background"
+        position="0 0 0"
+        geometry="primitive: sphere; radius: 2.0"
+        material="color: red; side: back; shader: flat"
+        scale="0.001 0.001 0.001"
+        visible="false" class="raycastable">
+      </a-entity>
+
+      <a-entity
+        position="0 1.6 0"
+        camera look-controls="magicWindowTrackingEnabled: false; touchEnabled: false; mouseEnabled: false">
+        <a-entity
+          id="fadeBackground"
+          geometry="primitive: sphere; radius: 2.5"
+          material="color: black; side: back; shader: flat; transparent: true; opacity: 0.6" visible="false">
+        </a-entity>
+      </a-entity>
+
+      <!-- Hand controls -->
+      <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
+      <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E"></a-entity>
+
+      <!-- 여기서부터 포트폴리오 -->
+      <a-entity id="ui" position="0 1.6 -2.5">
+        <!-- Poster menu -->
+        <a-entity id="menu" highlight>
+          <a-entity id="project1" position="-2.4 1 0" mixin="frame" class="raycastable menu-button">
+            <a-entity material="src: #project1Img;" mixin="poster"></a-entity>
+          </a-entity>
+
+          <a-entity id="project2" scale="2 1 1" position="-1.2 1 0" mixin="frameDeskTop" class="raycastable menu-button">
+            <a-entity material="src: #project2Img" mixin="poster"></a-entity>
+          </a-entity>
+
+          <a-entity id="project3" position="0 1 0" mixin="frame" class="raycastable menu-button">
+            <a-entity material="src: #project3Img" mixin="poster"></a-entity>
+          </a-entity>
+
+          <a-entity id="project4" scale="2 1 1" position="1.2 1 0" mixin="frameDeskTop" class="raycastable menu-button">
+            <a-entity material="src: #project4Img" mixin="poster"></a-entity>
+          </a-entity>
+          <a-entity id="project5" position="2.4 1 0" mixin="frame" class="raycastable menu-button">
+            <a-entity material="src: #project5Img" mixin="poster"></a-entity>
+          </a-entity>
+
+          <a-entity id="project6" position="-2.4 0 0"  mixin="frame" class="raycastable menu-button">
+            <a-entity material="src: #project6Img;" mixin="poster"></a-entity>
+          </a-entity>
+
+          <a-entity id="project7" position="-1.2 0 0" scale="2 1 1"  mixin="frameDeskTop" class="raycastable menu-button">
+            <a-entity material="src: #project7Img" mixin="poster"></a-entity>
+          </a-entity>
+
+          <a-entity id="project8" position="0 0 0"  mixin="frame" class="raycastable menu-button">
+            <a-entity material="src: #project8Img" mixin="poster"></a-entity>
+          </a-entity>
+
+          <a-entity id="project9" position="1.2 0 0" scale="2 1 1"  mixin="frameDeskTop" class="raycastable menu-button">
+            <a-entity material="src: #project9Img" mixin="poster"></a-entity>
+          </a-entity>
+          <a-entity id="project10" position="2.4 0 0"  mixin="frame" class="raycastable menu-button">
+            <a-entity material="src: #project10Img" mixin="poster"></a-entity>
+          </a-entity>
+          <a-entity id="project11" position="-2.4 -1 0" mixin="frame" class="raycastable menu-button">
+            <a-entity material="src: #project11Img;" mixin="poster"></a-entity>
+          </a-entity>
+
+          <a-entity id="project12" scale="2 1 1" position="-1.2 -1 0" mixin="frameDeskTop" class="raycastable menu-button">
+            <a-entity material="src: #project12Img" mixin="poster"></a-entity>
+          </a-entity>
+
+          <a-entity id="project13" position="0 -1 0" mixin="frame" class="raycastable menu-button">
+            <a-entity material="src: #project13Img" mixin="poster"></a-entity>
+          </a-entity>
+
+          <a-entity id="project14" scale="2 1 1" position="1.2 -1 0" mixin="frameDeskTop" class="raycastable menu-button">
+            <a-entity material="src: #project14Img" mixin="poster"></a-entity>
+          </a-entity>
+          <a-entity id="project15" position="2.4 -1 0" mixin="frame" class="raycastable menu-button">
+            <a-entity material="src: #project15Img" mixin="poster"></a-entity>
+          </a-entity>
+        </a-entity>
+
+        <!-- Info panel of the selected movie. -->
+        <a-entity
+          id="infoPanel"
+          position="0 0 0.5"
+          info-panel
+          visible="false"
+          scale="0.001 0.001 0.001"
+          geometry="primitive: plane; width: 1.5; height: 1.8"
+          material="color: #333333; shader: flat; transparent: false" class="raycastable">
+          <a-entity id="project1Img1" scale="0.5 1 1" mixin="movieImage" material="src: #project1Img" visible="false" ></a-entity>
+          <a-entity id="project2Img2" mixin="movieImage" material="src: #project2Img" visible="false"></a-entity>
+          <a-entity id="project3Img3" scale="0.5 1 1" mixin="movieImage" material="src: #project3Img" visible="false"></a-entity>
+          <a-entity id="project4Img4"  mixin="movieImage" material="src: #project4Img" visible="false"></a-entity>
+          <a-entity id="project5Img5"  scale="0.5 1 1" mixin="movieImage" material="src: #project5Img" visible="false"></a-entity>
+          <a-entity id="project6Img6"  scale="0.5 1 1"mixin="movieImage" material="src: #project6Img" visible="false"></a-entity>
+          <a-entity id="project7Img7"  mixin="movieImage" material="src: #project7Img" visible="false"></a-entity>
+          <a-entity id="project8Img8"  scale="0.5 1 1" mixin="movieImage" material="src: #project8Img" visible="false"></a-entity>
+          <a-entity id="project9Img9"  mixin="movieImage" material="src: #project9Img" visible="false"></a-entity>
+          <a-entity id="project10Img10" scale="0.5 1 1" mixin="movieImage" material="src: #project10Img" visible="false"></a-entity>
+          <a-entity id="project11Img11" scale="0.5 1 1" mixin="movieImage" material="src: #project11Img" visible="false"></a-entity>
+          <a-entity id="project12Img12"  mixin="movieImage" material="src: #project12Img" visible="false"></a-entity>
+          <a-entity id="project13Img13"  scale="0.5 1 1" mixin="movieImage" material="src: #project13Img" visible="false"></a-entity>
+          <a-entity id="project14Img14"  mixin="movieImage" material="src: #project14Img" visible="false"></a-entity>
+          <a-entity id="project15Img15"   mixin="movieImage" material="src: #project15Img" visible="false"></a-entity>
+          <a-entity id="movieTitle"
+            position="-0.68 -0.1 0"
+            text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value: Ponyo (2003)"></a-entity>
+          <a-entity id="movieDescription"
+            position="-0.68 -0.2 0"
+            scale="0.7"
+            text="baseline: top; shader: msdf; width: 2; anchor: left; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white;"></a-entity>
+        </a-entity>
+      </a-entity>
         <!-- <a-entity page-turn="direction: backward" id="previousButton"button="label: Previous" position="-0.5 1.1 -1.5"></a-entity> -->
     </a-scene>
     <script>

@@ -11,8 +11,8 @@ AFRAME.registerComponent('menu-click', {
     if(this.el.id == "menu-3"){
       this.el.addEventListener('click', this.menu3Click);
     }
-    if(this.el.id == "menu-4"){
-      this.el.addEventListener('click', this.menu4Click);
+    if(this.el.id == "portfolioClose"){
+      this.el.addEventListener('click', this.portfolioCloseClick);
     }
   },
 
@@ -24,15 +24,23 @@ AFRAME.registerComponent('menu-click', {
     hideMenu();
     setTimeout(() => {
       startTurnOnLights();
-    }, 500);
+    }, 200);
   },
   menu2Click: function () {
     console.log("menu2Click")
   },
   menu3Click: function () {
     console.log("menu3Click")
+    hideMenu()
+    setTimeout(() => {
+      showPortfolio();
+    }, 200);
   },
-  menu4Click: function () {
-    console.log("menu4Click")
+  portfolioCloseClick: function () {
+    console.log("portfolioCloseClick")
+    hidePortfolio();
+    setTimeout(() => {
+      showMenu()
+    }, 100);
   },
 });

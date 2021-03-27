@@ -258,8 +258,8 @@
             // bottomLight10, 
             // bottomLight11, 
         ];
-
-        for (let index =0; index < topLightArray.length; index++) {
+        function startTurnOnLights(){
+            for (let index =0; index < topLightArray.length; index++) {
             const topLight = topLightArray[index];
             const bottomLight= bottomLightArray[index];
             let time =2000+150*index;
@@ -279,6 +279,8 @@
                 topLight.setAttribute("visible",true);
                 bottomLight.setAttribute("visible",true);
             }, time);
+        }
+
         }
 
         function turnOffAllLight(){
@@ -304,6 +306,13 @@
             // bottomLight9.setAttribute("visible",false);
             // bottomLight10.setAttribute("visible",false);
             // bottomLight11.setAttribute("visible",false);
+        }
+
+        init();
+
+
+        function init(){
+            startTurnOnLights();
         }
     </script>
 </body>
